@@ -1,0 +1,38 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+    name: heartofthevalley
+    namespace: argocd
+spec:
+    generators:
+        - list:
+              elements:
+                  - env: dev
+                    project: dev
+                    namespace: heartofthevalley-dev
+                    valuesFile: dev-values.yaml
+                    destinationServer: https://kubernetes.default.svc
+                  - env: prod
+                    project: prod
+                    namespace: heartofthevalley-prod
+                    valuesFile: prod-values.yaml
+                    destinationServer: https://kubernetes.default.svc
+    template:
+        metadata:
+            name: 'heartofthevalley-{{env}}'
+        spec:
+            project: '{{project}}'
+            source:
+                repoURL: https://github.com/codeforsanjose/kubernetes.git
+                targetRevision: HEAD
+                path: deployments/heartofthevalley/kubernetes
+                helm:
+                    valueFiles:
+                        - '{{valuesFile}}'
+            destination:
+                server: '{{destinationServer}}'
+                namespace: '{{namespace}}'
+    ignoreApplicationDifferences:
+        - jqPathExpressions:
+              - .spec.source.helm.parameters

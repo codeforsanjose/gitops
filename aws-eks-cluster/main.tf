@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 1.5.3"
+  required_version = ">= 1.5.5"
 
   backend "s3" {
     bucket = "codeforsanjose-terraform"
@@ -58,7 +58,8 @@ locals {
   cluster_admin_users = [
     "darren",
     "ehudiono",
-    "sharedadmin@codeforsanjose.org"
+    "sharedadmin@codeforsanjose.org",
+    "nickk_dev"
   ]
 
   tags = {
