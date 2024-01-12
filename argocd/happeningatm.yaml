@@ -20,7 +20,7 @@ spec:
             project: '{{project}}'
             source:
                 repoURL: https://github.com/codeforsanjose/kubernetes.git
-                targetRevision: HEAD
+                targetRevision: large-refactor
                 path: deployments/happeningatm/kubernetes
                 helm:
                     valueFiles:
@@ -28,6 +28,9 @@ spec:
             destination:
                 server: '{{destinationServer}}'
                 namespace: '{{namespace}}'
+            syncPolicy:
+                syncOptions:
+                    - CreateNamespace=true
     ignoreApplicationDifferences:
         - jqPathExpressions:
               - .spec.source.helm.parameters
