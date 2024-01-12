@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-    name: heartofthevalley
+    name: happeningatm
     namespace: argocd
 spec:
     generators:
@@ -10,18 +10,18 @@ spec:
               elements:
                   - env: dev
                     project: dev
-                    namespace: heartofthevalley-dev
+                    namespace: happeningatm-dev
                     valuesFile: dev-values.yaml
                     destinationServer: https://kubernetes.default.svc
     template:
         metadata:
-            name: 'heartofthevalley-{{env}}'
+            name: 'happeningatm-{{env}}'
         spec:
             project: '{{project}}'
             source:
                 repoURL: https://github.com/codeforsanjose/kubernetes.git
                 targetRevision: HEAD
-                path: deployments/heartofthevalley/kubernetes
+                path: deployments/happeningatm/kubernetes
                 helm:
                     valueFiles:
                         - '{{valuesFile}}'
