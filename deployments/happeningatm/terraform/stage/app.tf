@@ -22,5 +22,5 @@ module "cloudflared_tunnel_dns" {
   application    = local.application
   environment    = local.environment
   deployment_url = local.deployment_url
-  cloudflare_tunnel_id = var.cloudflare_tunnel_id
+  CLOUDFLARE_TUNNEL_ID = var.CLOUDFLARE_TUNNEL_ID
 }

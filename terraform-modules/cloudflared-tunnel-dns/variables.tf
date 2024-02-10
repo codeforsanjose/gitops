@@ -10,7 +10,7 @@ variable "deployment_url" {
   type = string
 }
 
-variable "cloudflare_tunnel_id" {
+variable "CLOUDFLARE_TUNNEL_ID" {
   type = string
   sensitive = true
 }
