@@ -13,6 +13,11 @@ spec:
                     namespace: happeningatm-dev
                     valuesFile: dev-values.yaml
                     destinationServer: https://kubernetes.default.svc
+                  - env: stage
+                    project: stage
+                    namespace: happeningatm-stage
+                    valuesFile: stage-values.yaml
+                    destinationServer: https://kubernetes.default.svc
     template:
         metadata:
             name: 'happeningatm-{{env}}'
