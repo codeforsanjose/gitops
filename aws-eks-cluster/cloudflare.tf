@@ -4,5 +4,5 @@ module "cloudflared_tunnel_dns" {
   application          = local.application
   environment          = local.environment
   deployment_url       = local.kubernetes_dashboard_url
-  cloudflare_tunnel_id = cloudflare_tunnel.this.id
+  CLOUDFLARE_TUNNEL_ID = cloudflare_tunnel.this.id
 }

@@ -1,4 +1,4 @@
-variable "cloudflare_tunnel_id" {
+variable "CLOUDFLARE_TUNNEL_ID" {
   type = string
   sensitive = true
 }
