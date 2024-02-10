@@ -20,7 +20,7 @@ spec:
             project: '{{project}}'
             source:
                 repoURL: https://github.com/codeforsanjose/kubernetes.git
-                targetRevision: large-refactor
+                targetRevision: main
                 path: deployments/happeningatm/kubernetes
                 helm:
                     valueFiles:
