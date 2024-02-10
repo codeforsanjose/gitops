@@ -1,0 +1,5 @@
+apiVersion: v2
+name: happeningatm
+description: This Chart defines happeningatm deployment
+type: library
+version: 0.0.1

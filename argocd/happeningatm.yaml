@@ -1,0 +1,36 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+    name: happeningatm
+    namespace: argocd
+spec:
+    generators:
+        - list:
+              elements:
+                  - env: dev
+                    project: dev
+                    namespace: happeningatm-dev
+                    valuesFile: dev-values.yaml
+                    destinationServer: https://kubernetes.default.svc
+    template:
+        metadata:
+            name: 'happeningatm-{{env}}'
+        spec:
+            project: '{{project}}'
+            source:
+                repoURL: https://github.com/codeforsanjose/kubernetes.git
+                targetRevision: large-refactor
+                path: deployments/happeningatm/kubernetes
+                helm:
+                    valueFiles:
+                        - '{{valuesFile}}'
+            destination:
+                server: '{{destinationServer}}'
+                namespace: '{{namespace}}'
+            syncPolicy:
+                syncOptions:
+                    - CreateNamespace=true
+    ignoreApplicationDifferences:
+        - jqPathExpressions:
+              - .spec.source.helm.parameters
