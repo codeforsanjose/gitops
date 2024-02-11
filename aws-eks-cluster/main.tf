@@ -50,7 +50,7 @@ locals {
   vpc_cidr = "10.1.0.0/16"
   azs      = slice(data.aws_availability_zones.available.names, 0, 2)
 
-  cluster_version             = "1.27"
+  cluster_version             = "1.28"
   eks-cluster-admin-role-name = "iam-user-group-admin"
   nginx_fullname_override     = "nginx-ingress"
   kubernetes_dashboard_url    = "k8s-dashboard.opensourcesanjose.org"
