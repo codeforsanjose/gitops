@@ -8,28 +8,29 @@ spec:
     generators:
         - list:
               elements:
-                  - env: dev
+                  - applicationName: happeningatm-dev
                     project: dev
                     namespace: happeningatm-dev
-                    valuesFile: dev-values.yaml
+                    path: deployments/happeningatm/environments/dev/argocd
                     destinationServer: https://kubernetes.default.svc
-                  - env: stage
-                    project: stage
+                  - applicationName: happeningatm-stage
+                    # TODO: Create and use new ArgoCD Project `happeningatm`
+                    project: dev
                     namespace: happeningatm-stage
-                    valuesFile: stage-values.yaml
+                    path: deployments/happeningatm/environments/stage/argocd
                     destinationServer: https://kubernetes.default.svc
     template:
         metadata:
-            name: 'happeningatm-{{env}}'
+            name: '{{applicationName}}'
         spec:
             project: '{{project}}'
             source:
                 repoURL: https://github.com/codeforsanjose/kubernetes.git
                 targetRevision: main
-                path: deployments/happeningatm/kubernetes
+                path: '{{path}}'
                 helm:
                     valueFiles:
-                        - '{{valuesFile}}'
+                        - values.yaml
             destination:
                 server: '{{destinationServer}}'
                 namespace: '{{namespace}}'
