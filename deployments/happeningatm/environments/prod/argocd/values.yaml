@@ -2,9 +2,9 @@ global:
   image:
     repository: 253016134262.dkr.ecr.us-west-2.amazonaws.com/happeningatm
     tag: "e438e4ba298b19d7938941f3ba9e7d3c6d4e8b96"
-  deployed_url: happeningatm-stage.opensourcesanjose.org
+  deployed_url: happeningatm.opensourcesanjose.org
   eks_shared_environment: prod
-  doppler_secret_ref: happeningatm-stage-doppler-secrets
+  doppler_secret_ref: happeningatm-prod-doppler-secrets
 
 frontend:
   replicaCount: 1

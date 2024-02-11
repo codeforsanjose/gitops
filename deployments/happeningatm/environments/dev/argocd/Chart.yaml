@@ -1,6 +1,6 @@
 apiVersion: v2
-name: happeningatm-prod
-description: This Chart deploys happeningatm-prod
+name: happeningatm-dev
+description: This Chart deploys happeningatm-dev
 type: application
 version: 0.0.1
 appVersion: 0.0.1

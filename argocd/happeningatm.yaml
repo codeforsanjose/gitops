@@ -8,16 +8,21 @@ spec:
     generators:
         - list:
               elements:
+                    # TODO: (For all .project) Create and use new ArgoCD Project `happeningatm`
                   - applicationName: happeningatm-dev
                     project: dev
                     namespace: happeningatm-dev
                     path: deployments/happeningatm/environments/dev/argocd
                     destinationServer: https://kubernetes.default.svc
                   - applicationName: happeningatm-stage
-                    # TODO: Create and use new ArgoCD Project `happeningatm`
                     project: dev
                     namespace: happeningatm-stage
                     path: deployments/happeningatm/environments/stage/argocd
+                    destinationServer: https://kubernetes.default.svc
+                  - applicationName: happeningatm-prod
+                    project: dev
+                    namespace: happeningatm-prod
+                    path: deployments/happeningatm/environments/prod/argocd
                     destinationServer: https://kubernetes.default.svc
     template:
         metadata:
