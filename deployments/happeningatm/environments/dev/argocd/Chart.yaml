@@ -8,4 +8,4 @@ appVersion: 0.0.1
 dependencies:
 - name: happeningatm
   version: 0.0.1
-  repository: file://../../../charts/happeningatm
+  repository: file://../../../../../charts/happeningatm

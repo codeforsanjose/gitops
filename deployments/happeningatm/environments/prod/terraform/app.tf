@@ -8,7 +8,7 @@ resource "kubernetes_namespace" "this" {
 }
 
 module "doppler" {
-  source = "../../../../terraform-modules/eks-app-doppler-integration"
+  source = "../../../../../terraform-modules/eks-app-doppler-integration"
 
   namespace   = kubernetes_namespace.this.metadata[0].name
   application = local.application
@@ -17,7 +17,7 @@ module "doppler" {
 }
 
 module "cloudflared_tunnel_dns" {
-  source = "../../../../terraform-modules/cloudflared-tunnel-dns"
+  source = "../../../../../terraform-modules/cloudflared-tunnel-dns"
 
   application    = local.application
   environment    = local.environment
