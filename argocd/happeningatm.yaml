@@ -14,7 +14,8 @@ spec:
                     path: deployments/happeningatm/environments/dev/argocd
                     destinationServer: https://kubernetes.default.svc
                   - applicationName: happeningatm-stage
-                    project: stage
+                    # TODO: Create and use new ArgoCD Project `happeningatm`
+                    project: dev
                     namespace: happeningatm-stage
                     path: deployments/happeningatm/environments/stage/argocd
                     destinationServer: https://kubernetes.default.svc
