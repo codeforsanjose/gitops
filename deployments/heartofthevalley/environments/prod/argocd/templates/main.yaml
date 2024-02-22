@@ -4,6 +4,4 @@
 ---
 {{- include "shared-lib.backend" . }}
 ---
-{{- include "shared-lib.graphql" . }}
----
 {{- include "shared-lib.ingress" . }}
