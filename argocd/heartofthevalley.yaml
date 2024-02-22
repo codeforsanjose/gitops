@@ -8,31 +8,40 @@ spec:
     generators:
         - list:
               elements:
-                  - env: dev
-                    project: dev
-                    namespace: heartofthevalley-dev
-                    valuesFile: dev-values.yaml
+                    # TODO: (For all .project) Create and use new ArgoCD Project `heartofthevalley`
+                  # - applicationName: heartofthevalley-dev
+                  #   project: heartofthevalley
+                  #   namespace: heartofthevalley-dev
+                  #   path: deployments/heartofthevalley/environments/dev/argocd
+                  #   destinationServer: https://kubernetes.default.svc
+                  - applicationName: heartofthevalley-stage
+                    project: heartofthevalley
+                    namespace: heartofthevalley-stage
+                    path: deployments/heartofthevalley/environments/stage/argocd
                     destinationServer: https://kubernetes.default.svc
-                  - env: prod
-                    project: prod
-                    namespace: heartofthevalley-prod
-                    valuesFile: prod-values.yaml
-                    destinationServer: https://kubernetes.default.svc
+                  # - applicationName: heartofthevalley-prod
+                  #   project: heartofthevalley
+                  #   namespace: heartofthevalley-prod
+                  #   path: deployments/heartofthevalley/environments/prod/argocd
+                  #   destinationServer: https://kubernetes.default.svc
     template:
         metadata:
-            name: 'heartofthevalley-{{env}}'
+            name: '{{applicationName}}'
         spec:
             project: '{{project}}'
             source:
-                repoURL: https://github.com/codeforsanjose/kubernetes.git
-                targetRevision: HEAD
-                path: deployments/heartofthevalley/kubernetes
+                repoURL: https://github.com/codeforsanjose/gitops.git
+                targetRevision: heartofthevalley-prep
+                path: '{{path}}'
                 helm:
                     valueFiles:
-                        - '{{valuesFile}}'
+                        - values.yaml
             destination:
                 server: '{{destinationServer}}'
                 namespace: '{{namespace}}'
+            syncPolicy:
+                syncOptions:
+                    - CreateNamespace=true
     ignoreApplicationDifferences:
         - jqPathExpressions:
               - .spec.source.helm.parameters
