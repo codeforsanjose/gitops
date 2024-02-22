@@ -27,12 +27,12 @@ terraform {
 provider "aws" {}
 
 locals {
-  application      = "heartofthevalley"
-  environment      = "stage"
-  deployment_url   = "heartofthevalley-stage.opensourcesanjose.org"
-  aws_region       = "us-west-2"
-  eks_cluster_name = "shared-cluster-prod"
-
+  application       = "heartofthevalley"
+  environment       = "stage"
+  deployment_url    = "heartofthevalley-stage.opensourcesanjose.org"
+  aws_region        = "us-west-2"
+  eks_cluster_name  = "shared-cluster-prod"
+  auto_sync_doppler = true
   tags = {
     application       = local.application
     environment       = local.environment
