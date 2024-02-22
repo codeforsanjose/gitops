@@ -1,0 +1,5 @@
+apiVersion: v2
+name: heartofthevalley
+description: This Chart defines heartofthevalley deployment
+type: library
+version: 0.0.1
