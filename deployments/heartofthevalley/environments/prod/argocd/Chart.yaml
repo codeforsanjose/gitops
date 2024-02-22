@@ -1,0 +1,11 @@
+apiVersion: v2
+name: heartofthevalley-prod
+description: This Chart deploys heartofthevalley-prod
+type: application
+version: 0.0.1
+appVersion: 0.0.1
+
+dependencies:
+- name: heartofthevalley
+  version: 0.0.1
+  repository: file://../../../../../charts/heartofthevalley

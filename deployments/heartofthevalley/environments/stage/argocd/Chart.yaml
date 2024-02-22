@@ -1,0 +1,11 @@
+apiVersion: v2
+name: heartofthevalley-stage
+description: This Chart deploys heartofthevalley-stage
+type: application
+version: 0.0.1
+appVersion: 0.0.1
+
+dependencies:
+- name: heartofthevalley
+  version: 0.0.1
+  repository: file://../../../../../charts/heartofthevalley
