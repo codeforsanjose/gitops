@@ -11,7 +11,7 @@ spec:
     - host: {{ index .Values.global "deployed_url" }}
       http:
         paths:
-        - path: /features
+        - path: /v1/heartofvalley/
           pathType: Prefix
           backend:
             service:
