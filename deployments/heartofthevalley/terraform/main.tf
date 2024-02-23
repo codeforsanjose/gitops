@@ -24,7 +24,7 @@ provider "aws" {
 
 locals {
   application = "heartofthevalley"
-  ecr_respositories = ["fronted", "backend", "graphql"]
+  ecr_respositories = ["fronted", "backend"]
 
   region = "us-west-2"
 

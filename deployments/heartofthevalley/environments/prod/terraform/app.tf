@@ -14,6 +14,7 @@ module "doppler" {
   application = local.application
   environment = local.environment
   aws_region  = local.aws_region
+  auto_sync_doppler = local.auto_sync_doppler
 }
 
 module "cloudflared_tunnel_dns" {

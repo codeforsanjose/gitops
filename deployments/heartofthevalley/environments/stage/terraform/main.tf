@@ -33,6 +33,7 @@ locals {
   aws_region        = "us-west-2"
   eks_cluster_name  = "shared-cluster-prod"
   auto_sync_doppler = true
+  
   tags = {
     application       = local.application
     environment       = local.environment
