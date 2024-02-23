@@ -8,22 +8,21 @@ spec:
     generators:
         - list:
               elements:
-                    # TODO: (For all .project) Create and use new ArgoCD Project `heartofthevalley`
-                  # - applicationName: heartofthevalley-dev
-                  #   project: heartofthevalley
-                  #   namespace: heartofthevalley-dev
-                  #   path: deployments/heartofthevalley/environments/dev/argocd
-                  #   destinationServer: https://kubernetes.default.svc
+                #   - applicationName: heartofthevalley-dev
+                #     project: heartofthevalley
+                #     namespace: heartofthevalley-dev
+                #     path: deployments/heartofthevalley/environments/dev/argocd
+                #     destinationServer: https://kubernetes.default.svc
                   - applicationName: heartofthevalley-stage
                     project: heartofthevalley
                     namespace: heartofthevalley-stage
                     path: deployments/heartofthevalley/environments/stage/argocd
                     destinationServer: https://kubernetes.default.svc
-                  # - applicationName: heartofthevalley-prod
-                  #   project: heartofthevalley
-                  #   namespace: heartofthevalley-prod
-                  #   path: deployments/heartofthevalley/environments/prod/argocd
-                  #   destinationServer: https://kubernetes.default.svc
+                #   - applicationName: heartofthevalley-prod
+                #     project: heartofthevalley
+                #     namespace: heartofthevalley-prod
+                #     path: deployments/heartofthevalley/environments/prod/argocd
+                #     destinationServer: https://kubernetes.default.svc
     template:
         metadata:
             name: '{{applicationName}}'
@@ -31,7 +30,7 @@ spec:
             project: '{{project}}'
             source:
                 repoURL: https://github.com/codeforsanjose/gitops.git
-                targetRevision: heartofthevalley-prep
+                targetRevision: main
                 path: '{{path}}'
                 helm:
                     valueFiles:

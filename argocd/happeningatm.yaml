@@ -30,7 +30,7 @@ spec:
         spec:
             project: '{{project}}'
             source:
-                repoURL: https://github.com/codeforsanjose/kubernetes.git
+                repoURL: https://github.com/codeforsanjose/gitops.git
                 targetRevision: main
                 path: '{{path}}'
                 helm:
