@@ -17,6 +17,7 @@ resource "doppler_secrets_sync_aws_secrets_manager" "this" {
   integration = doppler_integration_aws_secrets_manager.this.id
   project     = var.application
   config      = var.environment
+  count       = var.auto_sync_doppler ? 1 : 0
 
   region = var.aws_region
   path   = "/doppler/${var.application}/${var.environment}/"

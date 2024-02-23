@@ -15,6 +15,10 @@ variable "aws_region" {
   default = "us-west-2"
 }
 
+variable "auto_sync_doppler" {
+  type = bool
+  default = true
+}
 # variable "deployment_url" {
 #   type = string
 # }
