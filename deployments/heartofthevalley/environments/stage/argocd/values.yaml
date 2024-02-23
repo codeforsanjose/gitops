@@ -25,7 +25,7 @@ backend:
   memory:
     requests: 150Mi
     limit: 1024Mi
-  port: 3002
+  port: 3001
 
 serviceaccount:
   create: false
